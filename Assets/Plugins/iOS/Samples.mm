@@ -24,4 +24,26 @@ extern "C" {
 		NSLog(@"Sample_FreePtr/native");
 		free(str);
 	}
+	
+	NSMutableDictionary* Sample_CreateNsDictionary() {
+		NSLog(@"Sample_CreateNsDictionary/native");
+		auto dict = [[NSMutableDictionary alloc] init];
+		NSLog(@"Sample_CreateNsDictionary/native: dict: %@", dict);
+		return dict;
+	}
+	
+	void Sample_AddPairToNsDictionary(NSMutableDictionary* dict, const char* key, const char* value) {
+		NSLog(@"Sample_AddPairToNsDictionary/native");
+		NSLog(@"Sample_AddPairToNsDictionary/native: %@, \"%s\", \"%s\"", dict, key, value);
+		auto nsKey = [NSString stringWithUTF8String:key];
+		auto valueId = [NSString stringWithUTF8String:value];
+		[dict setValue:valueId forKey:nsKey];
+	}
+	
+	void Sample_PrintNsDictionary(NSMutableDictionary* dict) {
+		NSLog(@"Sample_PrintNsDictionary/native");
+		NSLog(@"Sample_PrintNsDictionary/native: dict: %@", dict);
+	}
+	
+	// Concerns about ARC at this place, possible memory leaks
 }

@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class EntryPoint : MonoBehaviour {
 	void Start() {
 		TestStrLens();
 		TestToString();
+		TestDictionary();
 	}
 
 	void TestStrLens() {
@@ -22,5 +24,14 @@ public class EntryPoint : MonoBehaviour {
 		Debug.Log($"Sample_ToString/Unity: {val}");
 		var result = SampleWrapper.Sample.ToString(val);
 		Debug.Log($"Sample_ToString/Unity: Result is: \"{result}\" (expected: \"{val.ToString()}\")");
+	}
+
+	void TestDictionary() {
+		Debug.Log($"Sample_UseDictionary/Unity");
+		var dict = new Dictionary<string, string> {
+			{ "key1", "value1" },
+			{ "key2", "value2" }
+		};
+		SampleWrapper.Sample.UseDictionary(dict);
 	}
 }
