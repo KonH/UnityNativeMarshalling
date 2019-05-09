@@ -1,0 +1,10 @@
+.idea
+Assets/Plugins/Editor/JetBrains
+Builds
+Library
+Logs
+Temp
+obj
+.DS_Store
+*.csproj
+*.sln
