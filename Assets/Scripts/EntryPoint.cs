@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EntryPoint : MonoBehaviour {
@@ -29,9 +30,10 @@ public class EntryPoint : MonoBehaviour {
 	void TestDictionary() {
 		Debug.Log($"Sample_UseDictionary/Unity");
 		var dict = new Dictionary<string, string> {
-			{ "key1", "value1" },
-			{ "key2", "value2" }
+			{ "unity_key1", "value1" },
+			{ "unity_key2", "value2" }
 		};
-		SampleWrapper.Sample.UseDictionary(dict);
+		var result = SampleWrapper.Sample.UseDictionary(dict);
+		Debug.Log($"Sample_UseDictionary/Unity: result: {string.Join("; ", result.Select(p => $"\"{p.Key}\" => \"{p.Value}\""))}");
 	}
 }
