@@ -4,5 +4,7 @@ public static class SampleWrapper {
 		new EditorSample();
 	#elif UNITY_IPHONE
 		new iOSSample();
+	#elif UNITY_ANDROID
+		new AndroidSample();
 	#endif
 }
